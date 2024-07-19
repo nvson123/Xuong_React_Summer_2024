@@ -1,0 +1,79 @@
+{
+  "products": [
+    {
+      "id": "2",
+      "name": "Product 2",
+      "price": 200,
+      "image": "https://cdn.shopify.com/s/files/1/0061/5687/7924/files/01G_KHK_0598_F1_1024x1024.jpg?v=1679896084",
+      "images": [
+        "https://example.com/product2_1.jpg",
+        "https://example.com/product2_2.jpg",
+        "https://example.com/product2_3.jpg",
+        "https://example.com/product2_4.jpg"
+      ],
+      "description": "This is the description for Product 2.",
+      "category": "Layout 65%",
+      "rating": 3.6
+    },
+    {
+      "name": "Kohaku Lilac",
+      "price": 300,
+      "description": "Kohaku",
+      "image": "https://cdn.shopify.com/s/files/1/0061/5687/7924/files/03L_KHK_0985_F1_1024x1024.jpg?v=1679896085",
+      "images": [
+        "https://oblotzky.industries/cdn/shop/products/kohaku_lilac_01_720x.jpg?v=1681289719",
+        "https://oblotzky.industries/cdn/shop/products/kohaku_lilac_02_720x.jpg?v=1681289719",
+        "https://oblotzky.industries/cdn/shop/products/kohaku_lilac_03_720x.jpg?v=1681289719"
+      ],
+      "category": "Layout 65%",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "name": "Unikorn Deep Oceane",
+      "price": 300,
+      "image": "https://cdn.shopify.com/s/files/1/0061/5687/7924/files/DSC06405_Large_3e4c166f-64f8-4f84-9c24-f8511c115ca2.jpg?v=1666253919",
+      "images": [
+        "https://example.com/product3_1.jpg",
+        "https://example.com/product3_2.jpg",
+        "https://example.com/product3_3.jpg",
+        "https://example.com/product3_4.jpg"
+      ],
+      "description": "This is the description for Product 3.",
+      "category": "Layout 65%",
+      "rating": 5
+    },
+    {
+      "name": "lucky 65 ",
+      "price": "300",
+      "description": "new brand keeb",
+      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/436/596/products/2-min-1713935782726.png?v=1713935788740",
+      "images": [],
+      "category": "65%",
+      "id": "5"
+    },
+    {
+      "name": "lucky 65 ",
+      "price": "300",
+      "description": "mo ta 1",
+      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/436/596/products/2-min-1713935782726.png?v=1713935788740",
+      "images": [],
+      "category": "65%",
+      "id": "wVmnGkh"
+    }
+  ],
+  "users": [
+    {
+      "email": "wedsnnnvn789@gmail.com",
+      "password": "$2a$10$OatOWUjJlvFqUIoEAGeGo.7d8Z4JPTDn3svf7WO/v1K6n.Bn9bsW.",
+      "username": "sonnvph33458",
+      "id": 1
+    },
+    {
+      "email": "nguyenvinhson010304@gmail.com",
+      "password": "$2a$10$2GT2IXAXZ4vPrTQs6uOWoemhS.coAZA5609/qJrxgCj19qJvnteoG",
+      "username": "sonnvph33458",
+      "id": 2
+    }
+  ]
+}
