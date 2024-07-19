@@ -60,6 +60,15 @@
       "images": [],
       "category": "65%",
       "id": "wVmnGkh"
+    },
+    {
+      "name": "lucky 65 ",
+      "price": "1000",
+      "description": "mo ta 1",
+      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/436/596/products/2-min-1713935782726.png?v=1713935788740",
+      "images": [],
+      "category": "65%",
+      "id": "8XR8owB"
     }
   ],
   "users": [
@@ -74,6 +83,13 @@
       "password": "$2a$10$2GT2IXAXZ4vPrTQs6uOWoemhS.coAZA5609/qJrxgCj19qJvnteoG",
       "username": "sonnvph33458",
       "id": 2
+    },
+    {
+      "email": "sonnvph33458@fpt.edu.vn",
+      "password": "$2a$10$j8g93xNyIWZv6FvSvWBlh..k/n/C4ht8u1llhBPtr86.p0u8Vtw7u",
+      "username": "sonnvph33458",
+      "role": "admin",
+      "id": 3
     }
   ]
 }

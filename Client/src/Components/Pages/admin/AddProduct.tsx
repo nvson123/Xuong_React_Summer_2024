@@ -125,21 +125,6 @@ const AddProduct: React.FC = () => {
           )}
         />
         <Controller
-          name="images"
-          control={control}
-          rules={{ required: 'Additional Images URLs are required' }}
-          render={({ field }) => (
-            <TextField
-              {...field}
-              label="Additional Images URLs (comma separated)"
-              fullWidth
-              margin="normal"
-              error={!!errors.images}
-              helperText={errors.images?.message}
-            />
-          )}
-        />
-        <Controller
           name="category"
           control={control}
           rules={{ required: 'Category is required' }}

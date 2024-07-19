@@ -8,7 +8,7 @@ const Sidebar: React.FC = () => {
   return (
     <div style={{ width: 240, backgroundColor: '#f4f4f4', height: '100vh', padding: 20 }}>
       <List>
-        <ListItem button component={Link} to="/admin/dashboard">
+        <ListItem button component={Link} to="/admin">
           <ListItemIcon><Dashboard /></ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>

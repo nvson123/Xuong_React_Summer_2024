@@ -10,6 +10,7 @@ type RegisterFormParams = {
     username: string;
     email: string;
     password: string;
+    role?: string; 
 };
 
 const Register: React.FC = () => {
@@ -19,15 +20,18 @@ const Register: React.FC = () => {
         formState: { errors },
     } = useForm<RegisterFormParams>();
 
-    const [open, setOpen] = React.useState(false);  // State for Snackbar
+    const [open, setOpen] = React.useState(false);
     const navigate = useNavigate();
 
     const onSubmit: SubmitHandler<RegisterFormParams> = async (data) => {
+        //giá trị mặc định của role user
+        const requestData = { ...data, role: 'user' };
+
         try {
-            await axios.post('http://localhost:3000/register', data);
+            await axios.post('http://localhost:3000/register', requestData);
             setOpen(true);
             setTimeout(() => {
-                navigate('/login');  // Chuyển đến trang đăng nhập sau 3 giây
+                navigate('/login');  // Navigate to login page
             }, 3000);
         } catch (error) {
             console.error('Registration failed', error);
@@ -36,7 +40,7 @@ const Register: React.FC = () => {
 
     const handleClose = () => {
         setOpen(false);
-        navigate('/login');  // Chuyển đến trang đăng nhập khi người dùng đóng thông báo
+        navigate('/login'); 
     };
 
     return (
@@ -44,7 +48,7 @@ const Register: React.FC = () => {
             <Header />
             <Container
                 sx={{
-                    marginTop: '80px',  // Đảm bảo khoảng cách từ top để không bị che bởi Header
+                    marginTop: '80px', 
                     paddingTop: '20px',
                     minHeight: '100vh',
                 }}
@@ -109,7 +113,6 @@ const Register: React.FC = () => {
             <Footer />
             <Outlet/>
         </>
-
     );
 };
 

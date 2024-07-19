@@ -4,16 +4,9 @@ import axios from 'axios';
 import { Box, Button, Container, Grid, TextField, Typography, CircularProgress, Card, CardMedia } from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
 import FlashError from 'src/Components/FlashError';
+import { IProduct } from 'src/types/Product';
 
-interface IProduct {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-  images: string[];
-  category: string;
-}
+
 
 const UpdateProduct: React.FC = () => {
   const { id } = useParams<{ id: string }>();
