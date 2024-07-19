@@ -12,7 +12,7 @@ export type Product = {
 };
 export type category = {
     id: string;
-    title: string;
+    name: string;
     price: number;
     image: string;
     description: string;

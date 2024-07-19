@@ -1,79 +1,103 @@
-import { Button, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import { useState } from "react";
+import {
+    Button, Container, Paper, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography
+} from "@mui/material";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ConfirmDialog from "../../compontes/ComfirmDialog";
-
-function createData(
-    name: string,
-    calories: number,
-    fat: number,
-    carbs: number,
-    protein: number,
-) {
-    return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
+import { Product } from "../../types/product";
+import axios from "axios";
 
 function AdminProductList() {
-    const [confirm,setConfirm] = useState(false);
+    const [confirm, setConfirm] = useState(false);
+    const [products, setProducts] = useState<Product[]>([]);
+    const [idDelete, setIdDelete] = useState<string | null>(null);
+    const [openSnackbar, setOpenSnackbar] = useState(false);
 
-    const handleConfirm =()=>{    
+    const getAllProducts = async () => {
+        try {
+            const { data } = await axios.get("/products");
+            setProducts(data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
+    useEffect(() => {
+        getAllProducts();
+    }, []);
+
+    const handleConfirm = (id: string) => {
         setConfirm(true);
+        setIdDelete(id);
     };
 
-    const handleDelete=()=>{
-       
-            console.log("Delete");
-        
+    const handleDelete = async () => {
+        try {
+            await axios.delete("products/" + idDelete);
+            getAllProducts();
+            setOpenSnackbar(true); // Mở Snackbar khi xóa thành công
+        } catch (error) {
+            console.log(error);
+        }
     };
-    return <>
-        <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 1300 }} aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Dessert (100g serving)</TableCell>
-                        <TableCell align="right">Calories</TableCell>
-                        <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                        <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                        <TableCell align="right">Protein&nbsp;(g)</TableCell>
-                        <TableCell align="right">Actions</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map((row) => (
-                        <TableRow
-                            key={row.name}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                            <TableCell component="th" scope="row">
-                                {row.name}
-                            </TableCell>
-                            <TableCell align="right">{row.calories}</TableCell>
-                            <TableCell align="right">{row.fat}</TableCell>
-                            <TableCell align="right">{row.carbs}</TableCell>
-                            <TableCell align="right">{row.protein}</TableCell>
-                            <TableCell align="right">
-                                <Stack direction={ 'row'} gap={3} justifyContent={'center'}>
-                                    <Link to={""}>Edit</Link>
-                                    <Button variant="contained" sx={{ bgcolor:"red"}}onClick={handleConfirm}>Delete</Button>
-                                </Stack>
-                            </TableCell>
 
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-            <ConfirmDialog confirm={confirm} onConfirm={setConfirm} onDelete={handleDelete}/>
-        </TableContainer>
+    const handleSnackbarClose = () => {
+        setOpenSnackbar(false);
+    };
 
-    </>;
+    return (
+        <>
+            <Snackbar
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                open={openSnackbar}
+                autoHideDuration={3000}
+                onClose={handleSnackbarClose}
+                message="Xóa sản phẩm thành công"
+            />
+            <Container>
+                <Stack gap={2}>
+                    <Typography variant="h2" textAlign={"center"}>Products List</Typography>
+                    <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 1300 }} aria-label="simple table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Title</TableCell>
+                                    <TableCell align="right">Price</TableCell>
+                                    <TableCell align="right">Description</TableCell>
+                                    <TableCell align="right">Image</TableCell>
+                                    <TableCell align="right">Category</TableCell>
+                                    <TableCell align="right">Actions</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {products.map((product, index) => (
+                                    <TableRow
+                                        key={index}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell component="th" scope="row">
+                                            {product.title}
+                                        </TableCell>
+                                        <TableCell align="right">{product.price}</TableCell>
+                                        <TableCell align="right">{product.description}</TableCell>
+                                        <TableCell align="right">{product.image}</TableCell>
+                                        <TableCell align="right">{product.category.name}</TableCell>
+                                        <TableCell align="right">
+                                            <Stack direction={'row'} gap={3} justifyContent={'center'}>
+                                                <Link to={""}>Edit</Link>
+                                                <Button variant="contained" sx={{ bgcolor: "red" }} onClick={() => handleConfirm(product.id)}>Delete</Button>
+                                            </Stack>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                        <ConfirmDialog confirm={confirm} onConfirm={setConfirm} onDelete={handleDelete} />
+                    </TableContainer>
+                </Stack>
+            </Container>
+        </>
+    );
 }
+
 export default AdminProductList;

@@ -1,5 +1,7 @@
+import { Stack } from "@mui/material";
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
 const LayoutAdmin = () => {
   const navigate = useNavigate();
@@ -12,8 +14,11 @@ const LayoutAdmin = () => {
   }, []);
   return (
     <>
-      <p>Sidebar</p>
-      <Outlet />
+    <Stack direction={"row"} gap={2}>
+    <Sidebar/>
+    <Outlet />
+    </Stack>
+      
     </>
   );
 };

@@ -19,7 +19,7 @@ const routeCofig = [
     element: <LayoutAdmin />,
     children: [
       {
-        path: "product/list",
+        path: "list",
         element: <AdminProductList />,
       },
     ],

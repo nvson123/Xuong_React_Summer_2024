@@ -7,7 +7,7 @@ function LayoutAdmin() {
     <>
       {isAdmin ? (
         <>
-          <p>Sidebar</p>
+          
           <Outlet />
         </>
       ) : (
