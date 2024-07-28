@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade'; // Import the fade effect CSS
-import { Pagination, EffectFade } from 'swiper/modules'; // Import the EffectFade module
+import { Pagination, EffectFade, Autoplay } from 'swiper/modules'; // Import the EffectFade and Autoplay modules
 import '../App.css';
 
 const Slidebar: React.FC = () => {
@@ -13,12 +13,13 @@ const Slidebar: React.FC = () => {
         <div className="flex justify-center mt-[40px]">
             <div className="w-[1020px] h-[345px]">
                 <Swiper
-                    modules={[Pagination, EffectFade]} // Include EffectFade module
+                    modules={[Pagination, EffectFade, Autoplay]} // Include EffectFade and Autoplay modules
                     spaceBetween={50}
                     slidesPerView={1}
                     pagination={{ clickable: true, bulletClass: 'swiper-pagination-bullet', bulletActiveClass: 'swiper-pagination-bullet-active' }}
                     effect="fade" // Add the fade effect
                     fadeEffect={{ crossFade: true }} // Optional: cross-fade effect
+                    autoplay={{ delay: 3000, disableOnInteraction: false }} // Autoplay settings
                     className="h-full"
                 >
                     <SwiperSlide>
