@@ -10,7 +10,7 @@ const Header: React.FC = () => {
             {/* Top Header */}
             <div className="w-full bg-black h-12 flex items-center justify-center">
                 <p className="text-white font-poppins bg-black">
-                    Summer Sale For Products And Free Express Delivery - OFF 50% le van xong
+                    Summer Sale For Products And Free Express Delivery - OFF 50%
                 </p>
             </div>
 
