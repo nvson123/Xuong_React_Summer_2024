@@ -1,6 +1,7 @@
 import './App.css'
 import Header from './components/Header'
-import Slidebar from './components/Slidebar'
+import Slidebar from './components/SlideBar'
+
 
 
 
