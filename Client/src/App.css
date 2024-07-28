@@ -8,6 +8,18 @@
 */
 
 *,
+
+/* Customize Swiper pagination bullets */
+.swiper-pagination-bullet {
+  background: transparent;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #DB4444;
+}
+
+
 ::before,
 ::after {
   box-sizing: border-box;

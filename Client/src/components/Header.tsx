@@ -9,8 +9,8 @@ const Header: React.FC = () => {
         <div>
             {/* Top Header */}
             <div className="w-full bg-black h-12 flex items-center justify-center">
-                <p className="text-white font-poppins">
-                    Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%
+                <p className="text-white font-poppins bg-black">
+                    Summer Sale For Products And Free Express Delivery - OFF 50%
                 </p>
             </div>
 
@@ -37,7 +37,7 @@ const Header: React.FC = () => {
                         <img
                             src={searchIcon}
                             alt="Search"
-                            className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                            className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-transparent"
                             width="24"
                             height="24"
                         />
