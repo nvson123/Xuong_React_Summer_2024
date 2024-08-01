@@ -1,4 +1,4 @@
-import React from 'react';
+
 import heartIcon from '../assets/heart.png';
 const ProductCard = () => {
   return (
