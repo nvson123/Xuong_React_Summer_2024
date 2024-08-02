@@ -4,7 +4,7 @@ import service from '../assets/service.svg'
 
 const Guarantee = () => {
   return (
-    <div className="flex justify-center items-center h-[161px] gap-[88px] mt-10">
+    <div className="flex justify-center items-center h-[161px] gap-[88px] mt-10 mb-5">
       <div className="flex flex-col justify-start items-center gap-6">
         <div className="w-20 h-20 relative">
           <div className="w-20 h-20 left-0 top-0 absolute">
